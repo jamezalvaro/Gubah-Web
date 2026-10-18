@@ -33,7 +33,7 @@ Clone this repository and install the dependencies:
 
 ```bash
 # Clone the repository
-git clone [https://github.com/yourusername/gubah-app.git](https://github.com/yourusername/gubah-app.git)
+git clone [https://github.com/yourusername/Gubah-Web.git](https://github.com/yourusername/Gubah-Web.git)
 
 # Enter the project directory
 cd gubah-app
