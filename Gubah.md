@@ -23,9 +23,9 @@
 Before you begin, ensure you have the following installed on your local machine or server:
 - PHP (version 8.1 or higher)
 - Composer
-- PostgreSQL (version 13 or higher)
+- Docker & Docker Desktop (for isolated PostgreSQL environment)
 - Node.js (version 18 or higher) & NPM/Yarn
-- Web Server (Nginx or Apache)
+- Web Server (Nginx or Apache / built-in PHP server for local testing)
 - Git
 
 ## ⚙️ Installation Guide
@@ -33,7 +33,7 @@ Clone this repository and install the dependencies:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/gubah-app.git
+git clone [https://github.com/yourusername/gubah-app.git](https://github.com/yourusername/gubah-app.git)
 
 # Enter the project directory
 cd gubah-app
@@ -55,6 +55,9 @@ php artisan key:generate
 Configure your `.env` file with your PostgreSQL credentials, LLM API keys (e.g., Gemini/OpenAI), and Payment Gateway credentials (e.g., Midtrans/Xendit) before proceeding.
 
 ```bash
+# Start the PostgreSQL database container via Docker
+docker compose up -d
+
 # Run database migrations
 php artisan migrate
 
@@ -69,7 +72,8 @@ To run the project in development mode:
 php artisan serve
 ```
 
-> 💡 **Tip:** You can access the application at `http://localhost:8000`. Ensure your local PostgreSQL server is running. For testing payment webhooks locally, you might need tunneling tools like [Ngrok](https://ngrok.com/).
+```markdown
+> 💡 **Tip:** You can access the application at `http://localhost:8000`. Ensure your Docker desktop is running and the PostgreSQL container is active (default mapped to port 5432 or 5433 based on your `.env`). For testing payment webhooks locally, you might need tunneling tools like [Ngrok](https://ngrok.com/).
 
 ## 🏗️ Architecture & Tech Stack
 - **Backend Framework:** Laravel (PHP)
